@@ -58,6 +58,7 @@ function HeroCard(props) {
     image,
     created
   } = props.character;
+  const timeString = getFormattedCreatedTime(created);
 
   return (
     <div className="card">
@@ -69,7 +70,7 @@ function HeroCard(props) {
         />
         <div className="header-info">
           <div className="hero-name">{name}</div>
-          <div className="small-text">id: {id} - {getFormattedCreatedTime(created)}</div>
+          <div className="small-text">id: {id} - {timeString}</div>
         </div>
       </div>
       <div className="card-info">
