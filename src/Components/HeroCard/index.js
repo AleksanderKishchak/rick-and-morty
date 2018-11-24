@@ -16,6 +16,36 @@ InfoItem.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
+function getFormattedCreatedTime(timeString) {
+  const timestamp = new Date(timeString).getTime();
+  const timeDifference = Date.now() - timestamp;
+  const msInYear = 31536000000;
+  const msInMonths = 2592000000;
+  let formattedTimeString;
+
+  if (timeDifference > msInYear) {
+    const pastYears = parseInt(timeDifference / msInYear, 10);
+
+    if (pastYears === 1) {
+      formattedTimeString = 'created a year ago';
+    } else {
+      formattedTimeString = `created ${pastYears} years ago`;
+    }
+  } else if (timeDifference > msInMonths) {
+    const pastMonths = parseInt(timeDifference / msInMonths, 10);
+
+    if (pastMonths === 1) {
+      formattedTimeString = 'created a month ago';
+    } else {
+      formattedTimeString = `created ${pastMonths} months ago`;
+    }
+  } else {
+    formattedTimeString = 'created recently';
+  }
+
+  return formattedTimeString;
+}
+
 function HeroCard(props) {
   const {
     id,
@@ -25,7 +55,8 @@ function HeroCard(props) {
     gender,
     origin,
     location,
-    image
+    image,
+    created
   } = props.character;
 
   return (
@@ -38,7 +69,7 @@ function HeroCard(props) {
         />
         <div className="header-info">
           <div className="hero-name">{name}</div>
-          <div className="small-text">id: {id} - created a year ago</div>
+          <div className="small-text">id: {id} - {getFormattedCreatedTime(created)}</div>
         </div>
       </div>
       <div className="card-info">

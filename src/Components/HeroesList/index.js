@@ -17,7 +17,7 @@ class HeroesList extends Component {
   }
 
   getHeroes() {
-    fetch('https://rickandmortyapi.com/api/character/')
+    fetch('https://rickandmortyapi.com/api/character/?page=21')
       .then(response => response.json())
       .then(response => {
         const heroesList = response.results.map(hero => {
@@ -29,7 +29,8 @@ class HeroesList extends Component {
             gender,
             origin,
             location,
-            image
+            image,
+            created
           } = hero;
 
           return {
@@ -40,7 +41,8 @@ class HeroesList extends Component {
             gender,
             origin,
             location,
-            image
+            image,
+            created
           };
         });
 
