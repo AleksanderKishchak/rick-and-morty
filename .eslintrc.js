@@ -12,6 +12,8 @@ module.exports = {
         "linebreak-style": 0,
         "import/no-extraneous-dependencies": 0,
         "comma-dangle": 0,
-        "arrow-parens": ["error", "as-needed"]
+        "arrow-parens": ["error", "as-needed"],
+        "react/forbid-prop-types": "any",
+        "react/jsx-one-expression-per-line": "allow"
     }
 };
