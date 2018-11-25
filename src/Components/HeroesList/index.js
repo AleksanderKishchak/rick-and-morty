@@ -63,7 +63,7 @@ class HeroesList extends Component {
 
     return (
       <div className="heroes-list">
-        {rows}
+        {rows.length !== 0 ? rows : 'Heroes not found'}
       </div>
     );
   }
