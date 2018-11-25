@@ -1,6 +1,7 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import './HeroCard.sass';
+import getFormattedCreatedTime from '../../common/DateFormatting';
 
 function InfoItem({ field, text }) {
   return (
@@ -16,38 +17,8 @@ InfoItem.propTypes = {
   text: PropTypes.string.isRequired,
 };
 
-function getFormattedCreatedTime(timeString) {
-  const timestamp = new Date(timeString).getTime();
-  const timeDifference = Date.now() - timestamp;
-  const msInYear = 31536000000;
-  const msInMonths = 2592000000;
-  let formattedTimeString;
-
-  if (timeDifference > msInYear) {
-    const pastYears = parseInt(timeDifference / msInYear, 10);
-
-    if (pastYears === 1) {
-      formattedTimeString = 'created a year ago';
-    } else {
-      formattedTimeString = `created ${pastYears} years ago`;
-    }
-  } else if (timeDifference > msInMonths) {
-    const pastMonths = parseInt(timeDifference / msInMonths, 10);
-
-    if (pastMonths === 1) {
-      formattedTimeString = 'created a month ago';
-    } else {
-      formattedTimeString = `created ${pastMonths} months ago`;
-    }
-  } else {
-    formattedTimeString = 'created recently';
-  }
-
-  return formattedTimeString;
-}
-
-function HeroCard(props) {
-  const {
+function HeroCard({
+  character: {
     id,
     name,
     status,
@@ -57,7 +28,8 @@ function HeroCard(props) {
     location,
     image,
     created
-  } = props.character;
+  }
+}) {
   const timeString = getFormattedCreatedTime(created);
 
   return (
