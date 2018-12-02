@@ -3,3 +3,22 @@
   justify-content: space-around
   box-sizing: border-box
   flex-wrap: wrap
+
+.navigation
+  padding: 20px
+  display: flex
+  justify-content: center
+  .prev,
+  .next
+    border: 1px solid transparent
+    border-radius: 5px
+    background-color: #fff
+    padding: 10px 20px
+    margin: 10px
+    width: 150px
+    cursor: pointer
+    transition: .1s
+    &:not(:disabled):hover
+      background-color: rgb(32, 35, 41)
+      border: 1px solid white
+      color: white

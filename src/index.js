@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HeroesList from './Components/HeroesList';
+import { BrowserRouter as Router } from 'react-router-dom';
+import App from './App';
 import './index.sass';
 
-ReactDOM.render(<HeroesList />, document.getElementById('root'));
+ReactDOM.render(
+  <Router>
+    <App />
+  </Router>, document.getElementById('root'));

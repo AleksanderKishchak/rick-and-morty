@@ -1,7 +1,7 @@
 module.exports = {
     "extends": "airbnb",
     "parserOptions": {
-        "ecmaVersion": 6,
+        "ecmaVersion": 8,
         "sourceType": "module",
         "ecmaFeatures": {
             "jsx": true
@@ -14,6 +14,10 @@ module.exports = {
         "comma-dangle": 0,
         "arrow-parens": ["error", "as-needed"],
         "react/forbid-prop-types": "any",
-        "react/jsx-one-expression-per-line": "allow"
+        "react/jsx-one-expression-per-line": "allow",
+        "no-console": 0
+    },
+    "env": {
+        "browser": true
     }
 };

@@ -1,70 +1,68 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { PropTypes } from 'prop-types';
 import HeroCard from '../HeroCard';
 import './HeroesList.sass';
 
-
 class HeroesList extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      characters: [],
-    };
+  static propTypes = {
+    characters: PropTypes.array,
+    currentPage: PropTypes.number.isRequired,
+    handlePageChange: PropTypes.func.isRequired,
+    lastPage: PropTypes.number.isRequired,
   }
 
-  componentDidMount() {
-    this.getHeroes();
-  }
+  handleClick = e =>  {
+    const { currentPage, lastPage, handlePageChange } = this.props;
+    let newPage;
+    
+    if(e.target.name === 'prev') {
+      newPage = currentPage > 1 ? currentPage - 1 : 1;
+    } else {
+      newPage = currentPage >= lastPage ? lastPage : currentPage + 1;
+    }
 
-  getHeroes() {
-    fetch('https://rickandmortyapi.com/api/character/?page=21')
-      .then(response => response.json())
-      .then(response => {
-        const heroesList = response.results.map(hero => {
-          const {
-            id,
-            name,
-            status,
-            species,
-            gender,
-            origin,
-            location,
-            image,
-            created
-          } = hero;
-
-          return {
-            id,
-            name,
-            status,
-            species,
-            gender,
-            origin,
-            location,
-            image,
-            created
-          };
-        });
-
-        this.setState(state => ({
-          characters: [...state.characters, ...heroesList]
-        }));
-      });
+    handlePageChange(newPage);
   }
 
   render() {
-    const { characters } = this.state;
+    const { currentPage, lastPage, characters } = this.props;
     const rows = characters.map(character => (
-      <HeroCard
-        character={character}
+      <Link
+        to={`/character/${character.id}`}
         key={character.id}
-      />
+        style={{
+          textDecoration: 'none'
+        }}
+      >
+        <HeroCard character={character} />
+      </Link>
     ));
 
     return (
-      <div className="heroes-list">
-        {rows.length > 0 ? rows : 'Heroes not found'}
-      </div>
+      <main id="list">
+        <div className="heroes-list">
+          {rows.length > 0 ? rows : 'Heroes not found'}
+        </div>
+        <div className="navigation">
+          <button
+            disabled={ currentPage <= 1} 
+            className="prev" 
+            name="prev" 
+            onClick={this.handleClick}
+          >
+            Previous page
+          </button>
+          <button 
+            disabled={ currentPage >= lastPage}
+            className="next" 
+            name="next" 
+            onClick={this.handleClick}
+          >
+            Next page
+          </button>
+        </div>
+      </main>
     );
   }
 }
