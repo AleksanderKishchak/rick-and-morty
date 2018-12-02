@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import HeroCard from '../HeroCard';
@@ -12,6 +13,10 @@ class HeroesList extends Component {
     lastPage: PropTypes.number.isRequired,
   }
 
+  componentDidUpdate() {
+    this.scrollToTop();
+  }
+
   handleClick = e =>  {
     const { currentPage, lastPage, handlePageChange } = this.props;
     let newPage;
@@ -23,6 +28,13 @@ class HeroesList extends Component {
     }
 
     handlePageChange(newPage);
+  }
+
+  scrollToTop = () => {
+    window.scrollTo({
+        top: 0, 
+        behavior: "smooth"
+    })
   }
 
   render() {
