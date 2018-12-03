@@ -1,13 +1,13 @@
 {
-  "main.css": "/rick-and-morty/static/css/main.4f990a6b.chunk.css",
-  "main.js": "/rick-and-morty/static/js/main.9baf358d.chunk.js",
-  "main.js.map": "/rick-and-morty/static/js/main.9baf358d.chunk.js.map",
+  "main.css": "/rick-and-morty/static/css/main.3811ba9c.chunk.css",
+  "main.js": "/rick-and-morty/static/js/main.530b0be1.chunk.js",
+  "main.js.map": "/rick-and-morty/static/js/main.530b0be1.chunk.js.map",
   "static/js/1.48abcc24.chunk.js": "/rick-and-morty/static/js/1.48abcc24.chunk.js",
   "static/js/1.48abcc24.chunk.js.map": "/rick-and-morty/static/js/1.48abcc24.chunk.js.map",
   "runtime~main.js": "/rick-and-morty/static/js/runtime~main.e8a6392f.js",
   "runtime~main.js.map": "/rick-and-morty/static/js/runtime~main.e8a6392f.js.map",
-  "static/css/main.4f990a6b.chunk.css.map": "/rick-and-morty/static/css/main.4f990a6b.chunk.css.map",
+  "static/css/main.3811ba9c.chunk.css.map": "/rick-and-morty/static/css/main.3811ba9c.chunk.css.map",
   "index.html": "/rick-and-morty/index.html",
-  "precache-manifest.52db47e63cedbdcbed441db77d15386d.js": "/rick-and-morty/precache-manifest.52db47e63cedbdcbed441db77d15386d.js",
+  "precache-manifest.82df955a22abfe24bd5ecc73092baec0.js": "/rick-and-morty/precache-manifest.82df955a22abfe24bd5ecc73092baec0.js",
   "service-worker.js": "/rick-and-morty/service-worker.js"
 }
