@@ -5,7 +5,7 @@ function Home() {
   return (
     <main id="homepage">
       <Link
-        to="/character"
+        to="/rick-and-morty/character"
         className="link"
       >
         {'Get Characters'}

@@ -40,7 +40,7 @@ class HeroesList extends Component {
     const { currentPage, lastPage, characters } = this.props;
     const rows = characters.map(character => (
       <Link
-        to={`/character/${character.id}`}
+        to={`/rick-and-morty/character/${character.id}`}
         key={character.id}
         style={{
           textDecoration: 'none'

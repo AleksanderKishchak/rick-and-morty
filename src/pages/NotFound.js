@@ -9,7 +9,7 @@ function NotFound() {
         alt="404 not found"
       />
       <Link
-        to="/"
+        to="/rick-and-morty"
         className="link"
       >
         Go Home

@@ -46,10 +46,10 @@ class App extends Component {
     return (
       <div className="app">
         <Switch>
-          <Route exact path="/" component={Home}/>
+          <Route exact path="/rick-and-morty" component={Home}/>
           <Route
             exact
-            path="/character"
+            path="/rick-and-morty/character"
             render={
               props => (
                 <HeroesList
@@ -62,7 +62,7 @@ class App extends Component {
               )}
           />
           <Route
-            path="/character/:id"
+            path="/rick-and-morty/character/:id"
             component={HeroPage}
           />
           <Route component={NotFound}/>
